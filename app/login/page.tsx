@@ -50,10 +50,10 @@ export default function Login() {
         </div>
         <div className="flex space-x-2">
           <button className="w-full h-12 bg-transparent text-gray-600 transition-colors duration-150 hover:bg-blue-200 font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
-            <NextImage src={FacebookIcon} className="inline" />
+            <NextImage src={FacebookIcon} className="inline" alt={""} />
           </button>
           <button className="w-full h-12 bg-transparent text-gray-600 transition-colors duration-150 hover:bg-blue-200 font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
-            <NextImage src={GoogleIcon} className="inline-grid" />
+            <NextImage src={GoogleIcon} className="inline-grid" alt={""} />
           </button>
         </div>
         <div className="relative py-4">
