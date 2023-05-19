@@ -5,19 +5,21 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import axois from "axios";
 import { ILogin } from "@/app/login/page";
 import { store } from "../store";
+import { createCookie, tokenKey } from "@/_constants";
 
-export interface CounterState {
+export interface LoginState {
   isLoading: boolean;
   token: string;
 }
 
-const initialState: CounterState = {
+const initialState: LoginState = {
   isLoading: false,
   token: "",
 };
 
 export const getToken = createAsyncThunk("@login/get-token", async (data : ILogin) => {
   const response = await axois.post("http://localhost:5000/users/login", data);
+  if(response?.data?.token) createCookie(tokenKey,response?.data?.token)
   return await response;
 });
 
@@ -26,11 +28,10 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     userlogin: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
       state.isLoading = true;
+    },
+    updateTokenToStore: (state,action) => {
+      state.token = action.payload.token;
     },
   },
   extraReducers(builder) {
@@ -40,7 +41,6 @@ export const userSlice = createSlice({
       })
       .addCase(getToken.fulfilled, (state, action) => {
         state.isLoading = false;
-        // Add any fetched posts to the array
         state.token = action.payload.data.token;
       })
       .addCase(getToken.rejected, (state, action) => {
@@ -50,7 +50,7 @@ export const userSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { userlogin } = userSlice.actions;
+export const { userlogin,updateTokenToStore } = userSlice.actions;
 
 export default userSlice.reducer;
 

@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import NextImage from "../NextImage";
-import Image1 from "../../assets/images/image1.jpg";
-import Image2 from "../../assets/images/image2.jpg";
-import Image3 from "../../assets/images/image3.jpg";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/all";
-import Filter from "./filter";
-import { useDispatch, useSelector } from "react-redux";
+"use client"
+
 import { getAllProducts } from "@/app/GlobalRedux/Slices/home";
+import React, { useEffect } from "react";
+import { AiOutlineHeart } from "react-icons/all";
+import { useDispatch, useSelector } from "react-redux";
+import Image1 from "../../assets/images/image1.jpg";
+import NextImage from "../NextImage";
+import Filter from "./filter";
 
 function ProductsList() {
   const products = useSelector(state => state.product.productList);
@@ -16,7 +16,6 @@ function ProductsList() {
     dispatch(getAllProducts());
   }, [])
   
-console.log(products?.result,"products")
   return (
     <div className="max-w-6xl mx-auto my-4 bg-gray-300 rounded-xl shadow-xl">
       <div className="p-4">

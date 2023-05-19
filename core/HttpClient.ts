@@ -1,4 +1,5 @@
 import { store } from '@/app/GlobalRedux/store';
+import { readCookie, tokenKey } from '@/_constants';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export interface HttpClientRequestConfig extends AxiosRequestConfig {
@@ -98,9 +99,9 @@ export default class HttpClient {
   }
 
   private setConfig(config: HttpClientRequestConfig = {}): HttpClientRequestConfig {
-    const authorization: string | null = `Bearer ${store.getState().user?.token}`;
+    const authorization: string | null = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbHVAZ21haWwuY29tIiwidXNlcklkIjoiNjNlYjhiYTgwNWJiYzY3Zjg1YjZjNzFjIiwiaWF0IjoxNjgyNTk0MjQ2LCJleHAiOjE2ODI1OTc4NDZ9.xzNdGliM6D-mkv3-4U-Jq9mH582jeaQE6S6N2BuN96g`;
 
-    if (store.getState().user?.token) {
+    if (true) {
       const tokenHeaders: { [name: string]: string } = { authorization };
       return { ...config, headers: { ...config.headers, ...tokenHeaders } };
     }

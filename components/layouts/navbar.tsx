@@ -4,8 +4,11 @@ import { ImCart } from "react-icons/all";
 import { Avatar } from "@material-tailwind/react";
 import ProfileImg from "../../assets/images/avatar.jpg";
 import NextImage from "../NextImage";
+import { AiOutlinePlusCircle } from "react-icons/all";
+import { useRouter } from "next/navigation";
 
 export default function NavBar() {
+  const router = useRouter();
   return (
     <nav className="sticky top-2 z-10 max-w-6xl m-auto my-4 items-center rounded-xl bg-blue-600 hover:bg-blue-700 text-cyan-50 font-semibold shadow-xl p-4 h-16 min-h-full">
       <div className="mx-auto px-3 min-h-full">
@@ -22,6 +25,7 @@ export default function NavBar() {
 
             {/* custom end */}
             <div className="flex justify-center items-center hover:cursor-pointer">
+              <button className="mx-4 rounded-lg text-2xl" onClick={() => router.push('/addproduct')}><AiOutlinePlusCircle /></button>
               <div className="relative">
                 <ImCart />
                 <span className="text-gray-600 bg-red-400 absolute top-0 right-0 h-2 w-2 rounded-lg"></span>
