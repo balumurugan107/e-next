@@ -1,59 +1,253 @@
-"use client"
+"use client";
 
 import { getAllProducts } from "@/app/GlobalRedux/Slices/home";
 import React, { useEffect } from "react";
 import { AiOutlineHeart } from "react-icons/all";
 import { useDispatch, useSelector } from "react-redux";
-import Image1 from "../../assets/images/image1.jpg";
+import Image1 from "../../assets/images/influencer1.jpg";
+import Image2 from "../../assets/images/influencer2.jpg";
+import Image3 from "../../assets/images/influencer3.jpg";
+import Image4 from "../../assets/images/influencer4.jpg";
 import NextImage from "../NextImage";
 import Filter from "./filter";
 
 function ProductsList() {
-  const products = useSelector(state => state.product.productList);
+  const products = useSelector((state) => state.product.productList);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllProducts());
-  }, [])
-  
+  }, []);
+
   return (
     <div className="max-w-6xl mx-auto my-4 bg-gray-300 rounded-xl shadow-xl">
       <div className="p-4">
-        <Filter />
-        <div className="container m-auto grid grid-cols-3 gap-4">
-        {
-          products?.result?.map((product: any) =>(
-            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
-            <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg">
-              3 weeks ago
-            </span>
-            <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white" />
-            <NextImage
-              className="w-full rounded-lg"
-              src={Image1}
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">{product?.name}</div>
-              <div className="font-medium text-xl mb-2">${product?.price}</div>
-              <p className="text-gray-700 text-base">
-              {product?.description}
-              </p>
+        <div className="my-10">
+          <div className="flex items-center justify-between my-4">
+            <div>
+              <div className="font-semibold text-2xl">Featured</div>
+              <div className="text-gray">Hire top influencers across all platforms</div>
             </div>
-            <div className="px-6 pt-4 pb-2">
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                #photography 
+            <div>See all</div>
+          </div>
+
+          <div className="m-auto grid grid-cols-4 gap-4">
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
               </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                #travel
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image1}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 1</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
               </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                #winter
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image2}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 2</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
               </span>
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image3}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 3</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
+              </span>
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image4}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 4</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
             </div>
           </div>
-          ))
-        }
+        </div>
+
+        <div className="my-10">
+          <div className="flex items-center justify-between my-4">
+            <div>
+              <div className="font-semibold text-2xl">Instagram</div>
+              <div className="text-gray">Hire instagram influencers</div>
+            </div>
+            <div>See all</div>
+          </div>
+
+          <div className="m-auto grid grid-cols-4 gap-4">
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
+              </span>
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image1}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 1</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
+              </span>
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image2}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 2</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
+              </span>
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image3}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 3</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
+              </span>
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image4}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 4</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="my-10">
+          <div className="flex items-center justify-between my-4">
+            <div>
+              <div className="font-semibold text-2xl">Youtube</div>
+              <div className="text-gray">Hire top Youtubers</div>
+            </div>
+            <div>See all</div>
+          </div>
+
+          <div className="m-auto grid grid-cols-4 gap-4">
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
+              </span>
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image1}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 1</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
+              </span>
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image2}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 2</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
+              </span>
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image3}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 3</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+
+            <div className="card relative rounded-lg bg-white shadow-lg hover:shadow-2xl">
+              <span className="absolute top-4 left-0 bg-white bg-opacity-50 text-white rounded-tr-lg rounded-br-lg z-10">
+                3 weeks ago
+              </span>
+              <AiOutlineHeart className="absolute top-4 right-2 text-2xl text-white z-10" />
+              <NextImage
+                className="w-full rounded-lg aspect-[9/12] object-cover transition duration-300 ease-in-out hover:scale-105"
+                src={Image4}
+                alt="Sunset in the mountains"
+              />
+              <div className="absolute bottom-4 left-2 text-white flex flex-col">
+                <span className="text-md font-bold">Influencer 4</span>
+                <span className="text-xs text-white">Palo Alto,USA</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

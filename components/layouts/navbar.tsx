@@ -10,17 +10,18 @@ import { useRouter } from "next/navigation";
 export default function NavBar() {
   const router = useRouter();
   return (
-    <nav className="sticky top-2 z-10 max-w-6xl m-auto my-4 items-center rounded-xl bg-blue-600 hover:bg-blue-700 text-cyan-50 font-semibold shadow-xl p-4 h-16 min-h-full">
+    <nav className="top-2 z-10 max-w-6xl m-auto my-4 items-center rounded-xl bg-white text-black font-normal shadow-md p-4 h-16 min-h-full">
       <div className="mx-auto px-3 min-h-full">
         <div className="flex w-full">
           <div className="flex space-x-7 items-center justify-between w-full">
             {/* logo */}
-            <div className="hover:cursor-pointer">Logo here</div>
+            <div className="font-semibold hover:cursor-pointer">Logo here</div>
             {/* nav list */}
             <div className="flex items-center justify-center">
-              <a className="mx-3 hover:cursor-pointer">item-1</a>
-              <a className="mx-3 hover:cursor-pointer">item-2</a>
-              <a className="mx-3 hover:cursor-pointer">item-3</a>
+              <a className="mx-3 hover:cursor-pointer">Explore</a>
+              <a className="mx-3 hover:cursor-pointer">Login</a>
+              <a className="mx-3 hover:cursor-pointer">Join as brand</a>
+              <a className="mx-3 hover:cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-pink to-purple-400">Join as creator</a>
             </div>
 
             {/* custom end */}
